@@ -1,3 +1,4 @@
+const BACKSPACE = 8;
 const TAB = 9;
 const SHIFT = 16;
 const ESCAPE = 27;
@@ -10,6 +11,7 @@ const RIGHT = 39;
 const ARROWDOWN = 40;
 
 export {
+	BACKSPACE,
 	TAB,
 	SHIFT,
 	ESCAPE,
