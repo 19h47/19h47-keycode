@@ -9,6 +9,7 @@ const LEFT = 37;
 const ARROWUP = 38;
 const RIGHT = 39;
 const ARROWDOWN = 40;
+const DELETE = 46;
 
 export {
 	BACKSPACE,
@@ -22,4 +23,5 @@ export {
 	ARROWUP,
 	RIGHT,
 	ARROWDOWN,
+	DELETE,
 };
