@@ -1,5 +1,6 @@
 const BACKSPACE = 8;
 const TAB = 9;
+const ENTER = 13;
 const SHIFT = 16;
 const ESCAPE = 27;
 const SPACE = 32;
@@ -14,6 +15,7 @@ const DELETE = 46;
 export {
 	BACKSPACE,
 	TAB,
+	ENTER,
 	SHIFT,
 	ESCAPE,
 	SPACE,
