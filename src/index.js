@@ -4,6 +4,8 @@ const ENTER = 13;
 const SHIFT = 16;
 const ESCAPE = 27;
 const SPACE = 32;
+const PAGE_UP = 33;
+const PAGE_DOWN = 34;
 const END = 35;
 const HOME = 36;
 const LEFT = 37;
@@ -19,6 +21,8 @@ export {
 	SHIFT,
 	ESCAPE,
 	SPACE,
+	PAGE_UP,
+	PAGE_DOWN,
 	END,
 	HOME,
 	LEFT,
