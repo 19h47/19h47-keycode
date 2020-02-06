@@ -26,8 +26,8 @@ export {
 	END,
 	HOME,
 	LEFT,
-	ARROWUP,
+	ARROW_UP,
 	RIGHT,
-	ARROWDOWN,
+	ARROW_DOWN,
 	DELETE,
 };

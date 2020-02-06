@@ -1,6 +1,6 @@
 {
     "name": "@19h47/keycode",
-    "version": "1.0.6",
+    "version": "2.0.0",
     "description": "Simple keycode helper",
     "main": "dist/main.js",
     "scripts": {
@@ -8,9 +8,6 @@
         "dev": "./bin/development",
         "deploy": "./bin/deploy",
         "start": "./bin/start"
-    },
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/19h47"
     },
     "repository": {
         "type": "git",
@@ -27,7 +24,7 @@
     },
     "homepage": "https://github.com/19h47/19h47-keycode#readme",
     "devDependencies": {
-        "@babel/core": "^7.7.5",
+        "@babel/core": "^7.8.4",
         "babel-eslint": "^10.0.3",
         "babel-loader": "^8.0.6",
         "clean-webpack-plugin": "^3.0.0",
@@ -35,14 +32,14 @@
         "eslint-config-airbnb-base": "^13.2.0",
         "eslint-config-standard": "^12.0.0",
         "eslint-loader": "^2.2.1",
-        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-import": "^2.20.1",
         "eslint-plugin-node": "^9.2.0",
         "eslint-plugin-promise": "^4.2.1",
         "eslint-plugin-standard": "^4.0.1",
         "html-webpack-plugin": "^3.2.0",
-        "webpack": "^4.41.2",
+        "webpack": "^4.41.5",
         "webpack-cli": "^3.3.10",
-        "webpack-dev-server": "^3.9.0",
+        "webpack-dev-server": "^3.10.3",
         "webpack-merge": "^4.2.2",
         "webpack-notifier": "^1.8.0"
     }
