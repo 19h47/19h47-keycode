@@ -9,9 +9,9 @@ const PAGE_DOWN = 34;
 const END = 35;
 const HOME = 36;
 const LEFT = 37;
-const ARROWUP = 38;
+const ARROW_UP = 38;
 const RIGHT = 39;
-const ARROWDOWN = 40;
+const ARROW_DOWN = 40;
 const DELETE = 46;
 
 export {
