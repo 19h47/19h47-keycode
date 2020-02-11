@@ -1,6 +1,6 @@
 {
     "name": "@19h47/keycode",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "description": "Simple keycode helper",
     "main": "dist/main.js",
     "scripts": {

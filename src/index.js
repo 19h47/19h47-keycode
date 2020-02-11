@@ -8,9 +8,9 @@ const PAGE_UP = 33;
 const PAGE_DOWN = 34;
 const END = 35;
 const HOME = 36;
-const LEFT = 37;
+const ARROW_LEFT = 37;
 const ARROW_UP = 38;
-const RIGHT = 39;
+const ARROW_RIGHT = 39;
 const ARROW_DOWN = 40;
 const DELETE = 46;
 
@@ -25,9 +25,9 @@ export {
 	PAGE_DOWN,
 	END,
 	HOME,
-	LEFT,
+	ARROW_LEFT,
 	ARROW_UP,
-	RIGHT,
+	ARROW_RIGHT,
 	ARROW_DOWN,
 	DELETE,
 };
