@@ -1,4 +1,4 @@
-# @19h47/tabs
+# @19h47/keycode
 
 > Simple keycode helper
 
