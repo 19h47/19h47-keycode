@@ -1,1 +1,276 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>keycode</title><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"><style></style></head><body><div class="container"><div class="row"><div class="col-12"><h1 class="my-5"><a href="https://github.com/19h47/19h47-keycode">keycode</a></h1></div></div><div class="row"><div class="col-12"><blockquote class="blockquote"><p class="mb-0"><code>@TODO</code> handle key down like a <a href="https://keycode.info/" target="_blank">Wes Bos</a></p></blockquote></div></div></div><script src="main.js"></script><script></script></body></html>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>@19h47/keycode</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism.min.css"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--keycode-panel: #1a1d24;
+				--keycode-panel-border: #2d3340;
+				--keycode-muted: #6c757d;
+			}
+
+			.KeycodeHero {
+				background: var(--keycode-panel);
+				border: 1px solid var(--keycode-panel-border);
+				border-radius: 0.75rem;
+				color: #fff;
+				min-height: 12rem;
+				padding: 2rem 1.5rem;
+			}
+
+			.KeycodeHero-hint {
+				color: rgba(255, 255, 255, 0.65);
+				font-size: 0.95rem;
+				margin-bottom: 1.5rem;
+			}
+
+			.KeycodeDisplay {
+				align-items: center;
+				background: rgba(255, 255, 255, 0.04);
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				border-radius: 0.75rem;
+				display: flex;
+				font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+				font-size: clamp(2.5rem, 8vw, 4.5rem);
+				font-weight: 700;
+				justify-content: center;
+				line-height: 1;
+				margin: 0 auto;
+				max-width: 14rem;
+				min-height: 7rem;
+				transition: transform 0.12s ease, border-color 0.12s ease;
+			}
+
+			.KeycodeDisplay.is-active {
+				border-color: rgba(13, 110, 253, 0.65);
+				transform: scale(1.02);
+			}
+
+			.KeycodeProperties {
+				display: grid;
+				gap: 0.75rem;
+				grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+				margin-top: 1.5rem;
+			}
+
+			.KeycodeProperty {
+				background: #fff;
+				border: 1px solid #dee2e6;
+				border-radius: 0.5rem;
+				margin: 0;
+				padding: 0.875rem 1rem;
+			}
+
+			.KeycodeProperty-label {
+				color: var(--keycode-muted);
+				font-size: 0.8125rem;
+				font-weight: 600;
+				margin-bottom: 0.35rem;
+				text-transform: lowercase;
+			}
+
+			.KeycodeProperty-value {
+				font-size: 1rem;
+				margin: 0;
+				word-break: break-word;
+			}
+
+			.KeycodeModifiers {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				margin-top: 1.25rem;
+			}
+
+			.KeycodeModifier {
+				background: rgba(255, 255, 255, 0.06);
+				border: 1px solid rgba(255, 255, 255, 0.12);
+				border-radius: 999px;
+				color: rgba(255, 255, 255, 0.55);
+				font-size: 0.8125rem;
+				font-weight: 600;
+				padding: 0.35rem 0.85rem;
+				transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+			}
+
+			.KeycodeModifier.is-active {
+				background: rgba(13, 110, 253, 0.18);
+				border-color: rgba(13, 110, 253, 0.65);
+				color: #fff;
+			}
+
+			.KeycodeTableSearch {
+				max-width: 20rem;
+			}
+		</style>
+		<script type="module" crossorigin src="./assets/index-r4gxb-LG.js"></script>
+	</head>
+
+	<body>
+		<div class="container py-5">
+			<header class="mb-5">
+				<h1 class="mb-2">
+					<a href="https://github.com/19h47/19h47-keycode">@19h47/keycode</a>
+				</h1>
+				<p class="lead mb-2">Simple keycode helper</p>
+				<p class="text-secondary mb-0">
+					Named constants for legacy <code>KeyboardEvent.keyCode</code> values.
+				</p>
+			</header>
+
+			<section class="mb-5" aria-labelledby="usage-heading">
+				<h2 id="usage-heading" class="h4 mb-3">Usage</h2>
+				<pre class="p-3 mb-0 language-javascript"><code>import { ENTER, ESCAPE, ARROW_DOWN } from '@19h47/keycode';
+
+document.addEventListener('keydown', (event) => {
+	if (event.keyCode === ENTER) {
+		// …
+	}
+
+	if (event.keyCode === ESCAPE) {
+		// …
+	}
+});</code></pre>
+			</section>
+
+			<ul class="nav nav-tabs mb-4" role="tablist">
+				<li class="nav-item" role="presentation">
+					<button
+						class="nav-link active"
+						id="keycodes-tab"
+						data-bs-toggle="tab"
+						data-bs-target="#keycodes-panel"
+						type="button"
+						role="tab"
+						aria-controls="keycodes-panel"
+						aria-selected="true"
+					>
+						Keycodes
+					</button>
+				</li>
+				<li class="nav-item" role="presentation">
+					<button
+						class="nav-link"
+						id="table-tab"
+						data-bs-toggle="tab"
+						data-bs-target="#table-panel"
+						type="button"
+						role="tab"
+						aria-controls="table-panel"
+						aria-selected="false"
+					>
+						Table
+					</button>
+				</li>
+			</ul>
+
+			<div class="tab-content">
+				<section
+					class="tab-pane fade show active"
+					id="keycodes-panel"
+					role="tabpanel"
+					aria-labelledby="keycodes-tab"
+					tabindex="0"
+				>
+					<h2 class="h4 mb-2">JavaScript Key Code</h2>
+					<p class="text-secondary mb-4">
+						Press any key to get the JavaScript event keycode info
+					</p>
+
+					<div class="KeycodeHero">
+						<p class="KeycodeHero-hint mb-0">event.key</p>
+						<div class="KeycodeDisplay js-key-display" aria-live="polite">—</div>
+
+						<dl class="KeycodeProperties js-properties">
+							<div class="KeycodeProperty">
+								<dt class="KeycodeProperty-label">event.key</dt>
+								<dd class="KeycodeProperty-value"><code>—</code></dd>
+							</div>
+							<div class="KeycodeProperty">
+								<dt class="KeycodeProperty-label">event.code</dt>
+								<dd class="KeycodeProperty-value"><code>—</code></dd>
+							</div>
+							<div class="KeycodeProperty">
+								<dt class="KeycodeProperty-label">event.keyCode</dt>
+								<dd class="KeycodeProperty-value"><code>—</code></dd>
+							</div>
+							<div class="KeycodeProperty">
+								<dt class="KeycodeProperty-label">event.which</dt>
+								<dd class="KeycodeProperty-value"><code>—</code></dd>
+							</div>
+							<div class="KeycodeProperty">
+								<dt class="KeycodeProperty-label">event.location</dt>
+								<dd class="KeycodeProperty-value"><code>—</code></dd>
+							</div>
+							<div class="KeycodeProperty">
+								<dt class="KeycodeProperty-label">@19h47/keycode</dt>
+								<dd class="KeycodeProperty-value"><code>—</code></dd>
+							</div>
+						</dl>
+
+						<div class="KeycodeModifiers js-modifiers" aria-label="Modifier keys">
+							<span class="KeycodeModifier">Shift</span>
+							<span class="KeycodeModifier">Ctrl</span>
+							<span class="KeycodeModifier">Alt</span>
+							<span class="KeycodeModifier">Meta</span>
+						</div>
+					</div>
+				</section>
+
+				<section
+					class="tab-pane fade"
+					id="table-panel"
+					role="tabpanel"
+					aria-labelledby="table-tab"
+					tabindex="0"
+				>
+					<div class="d-flex flex-column flex-md-row gap-3 justify-content-between align-items-md-center mb-4">
+						<div>
+							<h2 class="h4 mb-1">Keycodes table</h2>
+							<p class="text-secondary mb-0">
+								Constants exported by <code>@19h47/keycode</code>
+							</p>
+						</div>
+						<label class="KeycodeTableSearch w-100 mb-0">
+							<span class="visually-hidden">Filter keycodes</span>
+							<input
+								class="form-control js-table-search"
+								type="search"
+								placeholder="Filter…"
+								autocomplete="off"
+							/>
+						</label>
+					</div>
+
+					<div class="table-responsive">
+						<table class="table table-striped table-hover align-middle mb-0">
+							<thead>
+								<tr>
+									<th scope="col">Constant</th>
+									<th scope="col">keyCode</th>
+									<th scope="col">key</th>
+									<th scope="col">code</th>
+								</tr>
+							</thead>
+							<tbody class="js-table-body"></tbody>
+						</table>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-javascript.min.js"></script>
+	</body>
+</html>
